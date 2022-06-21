@@ -4,7 +4,7 @@
   "Cuisine": "",
   "Rating": "",
   "Description": "",
-  "FaviourateDish": "",
+  "FavouriteDish": "",
   "Cost": "",
   "Address": "",
   "Meal": "",
@@ -13,5 +13,7 @@
   "Busy": "",
   "Aethestic": "",
   "Open": "",
-  "Close": ""
+  "Close": "",
+  "PetFriendly": "",
+  "StaffFriendly": ""
 }
