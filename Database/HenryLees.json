@@ -22,7 +22,10 @@
   "OpenSunday": "0800-1500",
   "PetFriendly": "No",
   "StaffFriendly": "Yes",
-  "Images": ["../assets/Pictures/HenryLees.png", ""],
+  "Images": [
+    "https://skillry-s3-testing-bucket111341-dev.s3.ap-southeast-2.amazonaws.com/HenryLees.png",
+    ""
+  ],
   "Website": "https://www.henrylees.com.au/",
   "Booking": "henrylees.com.au",
   "Instagram": "https://www.instagram.com/henryleesredfern/?hl=en",
