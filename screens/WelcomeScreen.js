@@ -31,6 +31,7 @@ export default function WelcomeScreen({ navigation }) {
   const [searchQuery, setSearchQuery] = React.useState("");
   const onChangeSearch = (query) => setSearchQuery(query);
 
+  const restaurants = [torotoro, henryLee];
   const restaurant = restaurants
     .filter(filtering(searchQuery))
     .map((selection, index) => {
@@ -66,7 +67,6 @@ export default function WelcomeScreen({ navigation }) {
     );
   };
 
-  const list = [torotoro, henryLee];
   return (
     <SafeAreaView
       style={styles.container}
