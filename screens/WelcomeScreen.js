@@ -107,7 +107,6 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: "bold",
   },
-<<<<<<< HEAD
   scrollView: {
     flex: 1,
     flexDirection: "column",
@@ -127,7 +126,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     height: "22%",
     width: "90%",
-=======
   sideItems: {
     position: "absolute",
     //top: 1,
@@ -138,6 +136,5 @@ const styles = StyleSheet.create({
     width: 40,
     height: 90,
     marginVertical: 10,
->>>>>>> 223be9eb70a3a51037a8b4769c8f4e109ed07457
   },
 });
