@@ -12,8 +12,13 @@
   "Queue": "",
   "Busy": "",
   "Aethestic": "",
-  "Open": "",
-  "Close": "",
+  "OpenMonday": "",
+  "OpenTuesday": "",
+  "OpenWednesday": "",
+  "OpenThursday": "",
+  "OpenFriday": "",
+  "OpenSaturday": "",
+  "OpenSunday": "",
   "PetFriendly": "",
   "StaffFriendly": ""
 }
