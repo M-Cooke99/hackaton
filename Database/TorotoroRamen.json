@@ -20,5 +20,10 @@
   "OpenSaturday": "12-3, 5:30-10",
   "OpenSunday": "Closed",
   "PetFriendly": "No",
-  "StaffFriendly": "Yes"
+  "StaffFriendly": "Yes",
+  "Images": ["../assets/Pictures/TorotoroRamen.png", ""],
+  "Website": "https://www.torotoro.com.au/",
+  "Booking": "nowbookit.com",
+  "Instagram": "",
+  "Facebook": ""
 }
