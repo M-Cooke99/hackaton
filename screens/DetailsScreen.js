@@ -19,21 +19,33 @@ import {
 } from "react-native";
 
 export default function DetailsScreen({navigation, route}) {
+ RestaurantTitle = route.params.item;
+
   return (
-    <KeyboardAvoidingView
-      style={styles.container}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-    >
-      <Text> THIS IS AN APP </Text>
-    </KeyboardAvoidingView>
+   <View style={styles.container}>
+     <Text style={styles}>{RestaurantTitle}</Text>
+  
+  
+   </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
+		flex: 1,
+		backgroundColor: "#faf7e8",
+		//alignItems: "center",
+		justifyContent: "center",
+	},
+
+	dummyTitle: {
+		flex: 1,
+		marginTop: 50,
+		paddingVertical: 20,
+		//color: colourpallet.blue,
+		color: "#419c68",
+		textAlign: "center",
+		fontSize: 25,
+		fontFamily: "HelveticaNeue-Light",
+	},
 });

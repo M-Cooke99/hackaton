@@ -38,7 +38,7 @@ export default function WelcomeScreen({ navigation }) {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <View>
-        <Text style={styles.title}> PERFER </Text>
+        <Text style={styles.title}> Snack Time </Text>
         <View style={styles.sideItems}>
           <AppIcon
             style={styles.sideIcons}
