@@ -18,7 +18,7 @@ import {
   Keyboard,
 } from "react-native";
 
-export default function WelcomeScreen({ navigation }) {
+export default function SearchedScreen({ navigation }) {
   return (
     <KeyboardAvoidingView
       style={styles.container}
