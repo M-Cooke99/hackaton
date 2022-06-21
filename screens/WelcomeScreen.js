@@ -17,7 +17,7 @@ import {
   ScrollView,
 } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
-import { List, Divider, DefaultTheme, Searchbar } from "react-native-paper";
+import { Searchbar } from "react-native-paper";
 import torotoro from "../Database/TorotoroRamen.json";
 import henryLee from "../Database/HenryLees.json";
 
