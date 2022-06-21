@@ -18,7 +18,7 @@ import {
   Keyboard,
 } from "react-native";
 import DropShadow from "react-native-drop-shadow";
-
+import { Rating, AirbnbRating } from "react-native-ratings";
 export default function DetailsScreen({navigation, route}) {
 
  console.log(route);
@@ -39,6 +39,22 @@ export default function DetailsScreen({navigation, route}) {
             <Text style={styles.body}>Website: {restaurant.Website}</Text>
             <Text style={styles.body}>Book: {restaurant.Booking}</Text>
            </View>
+
+        <View style={styles.inputBox}>
+         <Rating
+          type="heart"
+          ratingCount={5.0}
+          imageSize={60}
+          showRating={false}
+          ratingColor="#419c68"
+          ratingTextColor="#419c68" //green
+          ratingBackgroundColor="#e0f2dc"
+          readeonly={true}
+          startingValue={restaurant.Rating}
+          //onFinishRating={this.ratingCompleted}
+        />
+        </View>
+
         </View>
       </DropShadow>
     </View>
