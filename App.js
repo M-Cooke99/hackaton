@@ -5,9 +5,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 // OUR SCREENS -> Linked to root
 import WelcomeScreen from "./screens/WelcomeScreen";
-import DetailsScreen from "/screens/DetailsScreen";
-import SearchedScreen from "/screens/SearchedScreen";
-import CreateNewScreen from "/screens/CreateNewScreen";
+import DetailsScreen from "./screens/DetailsScreen";
+import SearchedScreen from "./screens/SearchedScreen";
+import CreateNewScreen from "./screens/CreateNewScreen";
 
 export default function App() {
   // SCREEN CONTAINER
