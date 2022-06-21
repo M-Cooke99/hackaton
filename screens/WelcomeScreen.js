@@ -35,21 +35,21 @@ export default function WelcomeScreen({ navigation }) {
   const restaurant = restaurants
     .filter(filtering(searchQuery))
     .map((selection, index) => {
-      console.log(selection.Images[0]);
-
       return (
         <TouchableOpacity
-          style={styles.categoryText}
+          style={styles.restaurantObj}
           key={index}
           onPress={() =>
             navigation.navigate("DetailsScreen", { jsonFile: selection })
           }
         >
           <Image
-            style={styles.imageShape}
-            source={require("../assets/Pictures/HenryLees.png")}
+            style={styles.objImage}
+            source={{
+              uri: selection.Images[0],
+            }}
           />
-          <Text>{selection.Name}</Text>
+          <Text style={styles.objText}>{selection.Name}</Text>
         </TouchableOpacity>
       );
     });
@@ -67,7 +67,6 @@ export default function WelcomeScreen({ navigation }) {
     );
   };
 
-  const list = [torotoro, henryLee];
   return (
     <SafeAreaView
       style={styles.container}
@@ -121,24 +120,22 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     flex: 1,
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "center",
+    flexDirection: "row",
+    paddingTop: 10,
   },
-  imageShape: {
-    width: "20%",
+  objImage: {
+    width: "100%",
     height: "100%",
     borderRadius: 30,
   },
-  categoryText: {
-    fontSize: 70,
+  restaurantObj: {
     margin: 5,
-    fontWeight: "bold",
     alignItems: "center",
     justifyContent: "space-evenly",
     height: "22%",
-    width: "90%",
+    width: "47%",
   },
+  objText: { margin: 5, fontSize: 15 },
   sideItems: {
     position: "absolute",
     //top: 1,
