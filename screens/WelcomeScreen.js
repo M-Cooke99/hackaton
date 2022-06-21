@@ -14,11 +14,38 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
+  ScrollView,
 } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { List, Divider, DefaultTheme, Searchbar } from "react-native-paper";
+import torotoro from "../Database/TorotoroRamen.json";
+import henryLee from "../Database/HenryLees.json";
 
 export default function WelcomeScreen({ navigation }) {
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const onChangeSearch = (query) => setSearchQuery(query);
+
+  const restaurants = [torotoro, henryLee];
+  const restaurant = restaurants.map((selection, index) => {
+    console.log(selection.Images[0]);
+
+    return (
+      <TouchableOpacity
+        style={styles.categoryText}
+        key={index}
+        onPress={() =>
+          navigation.navigate("DetailsScreen", { jsonFile: selection })
+        }
+      >
+        <Image
+          style={styles.imageShape}
+          source={require("../assets/Pictures/HenryLees.png")}
+        />
+        <Text>{selection.Name}</Text>
+      </TouchableOpacity>
+    );
+  });
+
   const AppIcon = ({ AntName, IonName, style, color, size, onPress }) => {
     return (
       <TouchableOpacity onPress={onPress}>
@@ -32,8 +59,9 @@ export default function WelcomeScreen({ navigation }) {
     );
   };
 
+  const list = [torotoro, henryLee];
   return (
-    <KeyboardAvoidingView
+    <SafeAreaView
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
@@ -45,15 +73,20 @@ export default function WelcomeScreen({ navigation }) {
             IonName="add-circle-outline"
             size={40}
             //color={colourpallet.test1}
-            //onPress={() => setModalVisible(true)}
+            onPress={() => navigation.navigate("CreateNewScreen")}
           />
         </View>
       </View>
       <Searchbar
         //style={{ paddingHorizontal: 10 }}
-        placeholder="What place do you want to find?"
+        placeholder="Search Me"
+        onChangeText={onChangeSearch}
+        value={searchQuery}
       />
-    </KeyboardAvoidingView>
+      <ScrollView contentContainerStyle={styles.scrollView}>
+        {restaurant}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -77,6 +110,26 @@ const styles = StyleSheet.create({
     //textAlign: "center",
     fontSize: 26,
     fontWeight: "bold",
+  },
+  scrollView: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  imageShape: {
+    width: "20%",
+    height: "100%",
+    borderRadius: 30,
+  },
+  categoryText: {
+    fontSize: 70,
+    margin: 5,
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    height: "22%",
+    width: "90%",
   },
   sideItems: {
     position: "absolute",
