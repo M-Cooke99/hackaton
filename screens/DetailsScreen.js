@@ -109,7 +109,8 @@ const styles = StyleSheet.create({
 
   title: {
     marginTop: 20,
-    paddingVertical: 5,
+    paddingVertical: 3,
+    paddingBottom: 10,
     color: "#419c68", //green title
     textAlign: "center",
     fontSize: 25,
@@ -125,7 +126,8 @@ const styles = StyleSheet.create({
   },
   objImage: {
     width: "100%",
-    height: "100%",
+    height: "30%",
     borderRadius: 30,
+    alignItems: "center",
   },
 });
