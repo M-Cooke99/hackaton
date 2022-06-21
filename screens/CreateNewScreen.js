@@ -74,14 +74,14 @@ export default function CreateNewScreen({ navigation }) {
           multiline
           blurOnSubmit
           style={styles.input}
-          placeholder="Enter Address"
+          placeholder="Enter Name of Place"
           keyboardType="ascii-capable"
         />
         <TextInput
           multiline
           blurOnSubmit
           style={styles.input}
-          placeholder="Enter Name of Place"
+          placeholder="Enter Address"
           keyboardType="ascii-capable"
         />
         <TextInput
