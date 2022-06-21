@@ -25,6 +25,27 @@ export default function CreateNewScreen({ navigation }) {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <Text> THIS IS AN APP </Text>
+      <TextInput
+        multiline
+        blurOnSubmit
+        //style={styles.input}
+        placeholder="Enter Title"
+        keyboardType="ascii-capable"
+      />
+      <TextInput
+        multiline
+        blurOnSubmit
+        //style={styles.input}
+        placeholder="Enter Description"
+        keyboardType="ascii-capable"
+      />
+      <TextInput
+        multiline
+        blurOnSubmit
+        //style={styles.input}
+        placeholder="Enter Title"
+        keyboardType="ascii-capable"
+      />
     </KeyboardAvoidingView>
   );
 }
