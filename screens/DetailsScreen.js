@@ -31,14 +31,14 @@ export default function DetailsScreen({navigation, route}) {
 
           {/* <Image style={styles.container} 
           source={require(restaurant.Image)}/> */}
-
-          <Text syle={styles.body}>Category: {restaurant.Cuisine}</Text>
-          <Text syle={styles.body}>Cost: {restaurant.Cost}</Text>
-          <Text style={styles.body}> Address: {restaurant.Address}</Text>
-          <Text syle={styles.body}>Notes: {restaurant.Description}</Text>
-          <Text syle={styles.body}>Notes: {restaurant.Website}</Text>
-          <Text syle={styles.body}>Notes: {restaurant.Booking}</Text>
-          <Text syle={styles.body}>Notes: {restaurant.Description}</Text>
+          <View style={styles.inputBox}>
+            <Text style={styles.body}>Category: {restaurant.Cuisine}</Text>
+            <Text style={styles.body}>Cost: {restaurant.Cost}</Text>
+            <Text style={styles.body}>Address: {restaurant.Address}</Text>
+            <Text style={styles.body}>Notes: {restaurant.Description}</Text>
+            <Text style={styles.body}>Website: {restaurant.Website}</Text>
+            <Text style={styles.body}>Book: {restaurant.Booking}</Text>
+           </View>
         </View>
       </DropShadow>
     </View>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
       backgroundColor: "",
       borderColor: "#ffffff",
       alignItems: "center",
-      paddingVertical: 70,
+      paddingVertical: 50,
       paddingHorizontal: 1,
       width: "100%",
     },
@@ -73,11 +73,14 @@ const styles = StyleSheet.create({
 		alignItems: "left",
 	//	justifyContent: "center",
 		padding: 40,
-		paddingVertical: 10,
+		paddingVertical: 5,
 		borderRadius: 2,
 		backgroundColor: "#e0f2dc",
 	},
 
+  inputBox: {
+    marginTop: 10,
+  },
 
 	title: {
 		marginTop: 20,
@@ -85,16 +88,14 @@ const styles = StyleSheet.create({
 		color: "#419c68",//green title 
 		textAlign: "center",
 		fontSize: 25,
-		fontFamily: "HelveticaNeue-Light",
+		fontFamily: "HelveticaNeue-Medium",
 	},
 
-  //text
   body:{
     color: "#361a0a",
     textAlign: "left",
-    fontSize: 20,
-    marginTop: 20,
-		paddingVertical: 5,
+    padding:2,
+    fontSize: 15,
     fontFamily: "HelveticaNeue-Light",
   }
 });
