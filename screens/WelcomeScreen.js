@@ -21,30 +21,38 @@ import { List, Divider, DefaultTheme, Searchbar } from "react-native-paper";
 import torotoro from "../Database/TorotoroRamen.json";
 import henryLee from "../Database/HenryLees.json";
 
+const filtering = (query) => (res) => {
+  if (!query) return true;
+  const rs = Object.values(res).filter((r) => r.includes(query));
+  return !!rs.length;
+};
+
 export default function WelcomeScreen({ navigation }) {
   const [searchQuery, setSearchQuery] = React.useState("");
   const onChangeSearch = (query) => setSearchQuery(query);
 
   const restaurants = [torotoro, henryLee];
-  const restaurant = restaurants.map((selection, index) => {
-    console.log(selection.Images[0]);
+  const restaurant = restaurants
+    .filter(filtering(searchQuery))
+    .map((selection, index) => {
+      console.log(selection.Images[0]);
 
-    return (
-      <TouchableOpacity
-        style={styles.categoryText}
-        key={index}
-        onPress={() =>
-          navigation.navigate("DetailsScreen", { jsonFile: selection })
-        }
-      >
-        <Image
-          style={styles.imageShape}
-          source={require("../assets/Pictures/HenryLees.png")}
-        />
-        <Text>{selection.Name}</Text>
-      </TouchableOpacity>
-    );
-  });
+      return (
+        <TouchableOpacity
+          style={styles.categoryText}
+          key={index}
+          onPress={() =>
+            navigation.navigate("DetailsScreen", { jsonFile: selection })
+          }
+        >
+          <Image
+            style={styles.imageShape}
+            source={require("../assets/Pictures/HenryLees.png")}
+          />
+          <Text>{selection.Name}</Text>
+        </TouchableOpacity>
+      );
+    });
 
   const AppIcon = ({ AntName, IonName, style, color, size, onPress }) => {
     return (
