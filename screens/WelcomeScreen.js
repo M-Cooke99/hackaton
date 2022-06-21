@@ -45,7 +45,7 @@ export default function WelcomeScreen({ navigation }) {
             IonName="add-circle-outline"
             size={40}
             //color={colourpallet.test1}
-            //onPress={() => setModalVisible(true)}
+            onPress={() => navigation.navigate("CreateNewScreen")}
           />
         </View>
       </View>
