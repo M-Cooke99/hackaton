@@ -22,7 +22,10 @@
   "OpenSunday": "Closed",
   "PetFriendly": "No",
   "StaffFriendly": "Yes",
-  "Images": ["../assets/Pictures/TorotoroRamen.png", ""],
+  "Images": [
+    "https://skillry-s3-testing-bucket111341-dev.s3.ap-southeast-2.amazonaws.com/TorotoroRamen.png",
+    ""
+  ],
   "Website": "https://www.torotoro.com.au/",
   "Booking": "nowbookit.com",
   "Instagram": "",
