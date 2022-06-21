@@ -11,9 +11,13 @@
   "ToiletQuality": "",
   "Queue": "",
   "Busy": "",
-  "Aethestic": "",
+  "Aesthetic": "",
   "Open": "",
   "Close": "",
   "PetFriendly": "",
-  "StaffFriendly": ""
+  "StaffFriendly": "",
+  "Images": ["", ""],
+  "Website": "",
+  "Instagram": "",
+  "Facebook": ""
 }
