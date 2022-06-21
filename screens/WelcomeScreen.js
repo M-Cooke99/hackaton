@@ -17,6 +17,8 @@ import {
 } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { List, Divider, DefaultTheme, Searchbar } from "react-native-paper";
+import torotoro from '../Database/TorotoroRamen.json';
+import henryLee from '../Database/HenryLees.json';
 
 export default function WelcomeScreen({ navigation }) {
   const AppIcon = ({ AntName, IonName, style, color, size, onPress }) => {
@@ -32,6 +34,7 @@ export default function WelcomeScreen({ navigation }) {
     );
   };
 
+  const list = [torotoro, henryLee];
   return (
     <KeyboardAvoidingView
       style={styles.container}
