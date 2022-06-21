@@ -18,26 +18,30 @@ import {
 } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { List, Divider, DefaultTheme, Searchbar } from "react-native-paper";
-import torotoro from '../Database/TorotoroRamen.json';
-import henryLee from '../Database/HenryLees.json';
+import torotoro from "../Database/TorotoroRamen.json";
+import henryLee from "../Database/HenryLees.json";
 
 export default function WelcomeScreen({ navigation }) {
   const [searchQuery, setSearchQuery] = React.useState("");
   const onChangeSearch = (query) => setSearchQuery(query);
 
-  const restaurants = ["TorotoroRamen", "HenryLees"];
+  const restaurants = [torotoro, henryLee];
   const restaurant = restaurants.map((selection, index) => {
-    imageAddress = `./assets/Pictures/${selection}.png`;
+    console.log(selection.Images[0]);
+
     return (
       <TouchableOpacity
         style={styles.categoryText}
         key={index}
         onPress={() =>
-          navigation.navigate("DetailsScreen", { jsonFile: })
+          navigation.navigate("DetailsScreen", { jsonFile: selection })
         }
       >
-        <Image style={styles.imageShape} source={require(imageAddress)} />
-        <Text>{selection}</Text>
+        <Image
+          style={styles.imageShape}
+          source={require("../assets/Pictures/HenryLees.png")}
+        />
+        <Text>{selection.Name}</Text>
       </TouchableOpacity>
     );
   });
@@ -126,6 +130,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     height: "22%",
     width: "90%",
+  },
   sideItems: {
     position: "absolute",
     //top: 1,
