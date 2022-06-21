@@ -21,6 +21,12 @@ import {
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { Rating, AirbnbRating } from "react-native-ratings";
 import * as ImagePicker from "expo-image-picker";
+import {
+  List,
+  ToggleButton,
+  Provider as PaperProvider,
+} from "react-native-paper";
+import { Size } from "@ui-kitten/components/devsupport";
 
 export default function CreateNewScreen({ navigation }) {
   let openImagePickerAsync = async () => {
@@ -54,6 +60,8 @@ export default function CreateNewScreen({ navigation }) {
   //   }
 
   const [selectedImage, setSelectedImage] = React.useState(null);
+
+  const [value, setValue] = React.useState("left");
 
   return (
     <KeyboardAvoidingView
@@ -94,11 +102,25 @@ export default function CreateNewScreen({ navigation }) {
         <TextInput
           multiline
           blurOnSubmit
-          style={styles.input}
+          style={styles.input2}
           placeholder="Any Extra Notes?"
           keyboardType="ascii-capable"
         />
-
+        <View style={{ alignItems: "center", marginBottom: 10 }}>
+          <ToggleButton.Row
+            onValueChange={(value) => setValue(value)}
+            value={value}
+          >
+            <ToggleButton
+              icon="format-align-left"
+              value="left"
+              //style={{ width: 40, height: 40 }}
+              //size={10}
+            />
+            <ToggleButton icon="format-align-center" value="center" />
+            <ToggleButton icon="format-align-right" value="right" />
+          </ToggleButton.Row>
+        </View>
         <Rating
           type="heart"
           ratingCount={5}
@@ -122,7 +144,17 @@ const styles = StyleSheet.create({
     //justifyContent: "center",
   },
   input: {
-    height: 75,
+    height: 40,
+    margin: 6,
+    borderWidth: 1,
+    //borderColor: colourpallet.hightlight,
+    padding: 10,
+    //backgroundColor: colourpallet.primary,
+    borderRadius: 10,
+    fontSize: 16,
+  },
+  input2: {
+    height: 90,
     margin: 6,
     borderWidth: 1,
     //borderColor: colourpallet.hightlight,
@@ -142,6 +174,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#26abff",
     alignItems: "center",
     marginTop: 10,
+    //paddingHorizontal: 5,
   },
   thumbnail: {
     width: 300,
