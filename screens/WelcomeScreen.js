@@ -16,7 +16,10 @@ import {
   Keyboard,
   ScrollView,
 } from "react-native";
+import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { List, Divider, DefaultTheme, Searchbar } from "react-native-paper";
+import torotoro from '../Database/TorotoroRamen.json';
+import henryLee from '../Database/HenryLees.json';
 
 export default function WelcomeScreen({ navigation }) {
   const [searchQuery, setSearchQuery] = React.useState("");
@@ -39,12 +42,37 @@ export default function WelcomeScreen({ navigation }) {
     );
   });
 
+  const AppIcon = ({ AntName, IonName, style, color, size, onPress }) => {
+    return (
+      <TouchableOpacity onPress={onPress}>
+        {AntName && (
+          <AntDesign name={AntName} size={size} color={color} style={style} />
+        )}
+        {IonName && (
+          <Ionicons name={IonName} size={size} color={color} style={style} />
+        )}
+      </TouchableOpacity>
+    );
+  };
+
+  const list = [torotoro, henryLee];
   return (
     <SafeAreaView
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
-      <Text style={styles.title}> THIS IS AN APP </Text>
+      <View>
+        <Text style={styles.title}> PERFER </Text>
+        <View style={styles.sideItems}>
+          <AppIcon
+            style={styles.sideIcons}
+            IonName="add-circle-outline"
+            size={40}
+            //color={colourpallet.test1}
+            onPress={() => navigation.navigate("CreateNewScreen")}
+          />
+        </View>
+      </View>
       <Searchbar
         //style={{ paddingHorizontal: 10 }}
         placeholder="Search Me"
@@ -62,12 +90,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
+    //alignItems: "center",
     //justifyContent: "center",
   },
   title: {
     marginTop: "2%",
     paddingVertical: "1%",
+    paddingBottom: "5%",
     paddingLeft: "2%",
     // borderWidth: 2,
     // borderColor: colourpallet.black,
@@ -78,6 +107,7 @@ const styles = StyleSheet.create({
     fontSize: 26,
     fontWeight: "bold",
   },
+<<<<<<< HEAD
   scrollView: {
     flex: 1,
     flexDirection: "column",
@@ -97,5 +127,17 @@ const styles = StyleSheet.create({
     justifyContent: "space-evenly",
     height: "22%",
     width: "90%",
+=======
+  sideItems: {
+    position: "absolute",
+    //top: 1,
+    right: 5,
+    padding: 5,
+  },
+  sideIcons: {
+    width: 40,
+    height: 90,
+    marginVertical: 10,
+>>>>>>> 223be9eb70a3a51037a8b4769c8f4e109ed07457
   },
 });
