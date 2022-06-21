@@ -27,7 +27,7 @@ export default function DetailsScreen({navigation, route}) {
     <View style={styles.card}>
       <DropShadow style={styles.commonProp}>
         <View style={styles.container}>
-         <Text style={styles.title}>{restaurant.Name}</Text>
+          <Text style={styles.title}>{restaurant.Name}</Text>
 
           {/* <Image style={styles.container} 
           source={require(restaurant.Image)}/> */}
@@ -62,56 +62,55 @@ export default function DetailsScreen({navigation, route}) {
 }
 
 const styles = StyleSheet.create({
-  
-		card: {
-      flex: 1,
-      backgroundColor: "",
-      borderColor: "#ffffff",
-      alignItems: "center",
-      paddingVertical: 50,
-      paddingHorizontal: 1,
-      width: "100%",
-    },
-
-    commonProp: {  
+  card: {
     flex: 1,
-		shadowColor: "#361a0a",
-		shadowOffset: {
-			width: 22,
-			height: 22,
-		},
-		shadowOpacity: 0.5,
-		shadowRadius: 4,
-	},
-  
+    backgroundColor: "",
+    borderColor: "#ffffff",
+    alignItems: "center",
+    paddingVertical: 50,
+    paddingHorizontal: 1,
+    width: "100%",
+  },
+
+  commonProp: {
+    flex: 1,
+    shadowColor: "#361a0a",
+    shadowOffset: {
+      width: 22,
+      height: 22,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 4,
+  },
+
   container: {
-		flex: 1,
-		alignItems: "left",
-	//	justifyContent: "center",
-		padding: 40,
-		paddingVertical: 5,
-		borderRadius: 2,
-		backgroundColor: "#e0f2dc",
-	},
+    flex: 1,
+    alignItems: "left",
+    //	justifyContent: "center",
+    padding: 40,
+    paddingVertical: 5,
+    borderRadius: 2,
+    backgroundColor: "#e0f2dc",
+  },
 
   inputBox: {
     marginTop: 10,
   },
 
-	title: {
-		marginTop: 20,
-		paddingVertical: 5,
-		color: "#419c68",//green title 
-		textAlign: "center",
-		fontSize: 25,
-		fontFamily: "HelveticaNeue-Medium",
-	},
+  title: {
+    marginTop: 20,
+    paddingVertical: 5,
+    color: "#419c68", //green title
+    textAlign: "center",
+    fontSize: 25,
+    fontFamily: "HelveticaNeue-Medium",
+  },
 
-  body:{
+  body: {
     color: "#361a0a",
     textAlign: "left",
-    padding:2,
+    padding: 2,
     fontSize: 15,
     fontFamily: "HelveticaNeue-Light",
-  }
+  },
 });
