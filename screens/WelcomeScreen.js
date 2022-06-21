@@ -14,21 +14,47 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
+  ScrollView,
 } from "react-native";
 import { List, Divider, DefaultTheme, Searchbar } from "react-native-paper";
 
 export default function WelcomeScreen({ navigation }) {
+  const [searchQuery, setSearchQuery] = React.useState("");
+  const onChangeSearch = (query) => setSearchQuery(query);
+
+  const restaurants = ["TorotoroRamen", "HenryLees"];
+  const restaurant = restaurants.map((selection, index) => {
+    imageAddress = `./assets/Pictures/${selection}.png`;
+    return (
+      <TouchableOpacity
+        style={styles.categoryText}
+        key={index}
+        onPress={() =>
+          navigation.navigate("DetailsScreen", { jsonFile: })
+        }
+      >
+        <Image style={styles.imageShape} source={require(imageAddress)} />
+        <Text>{selection}</Text>
+      </TouchableOpacity>
+    );
+  });
+
   return (
-    <KeyboardAvoidingView
+    <SafeAreaView
       style={styles.container}
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <Text style={styles.title}> THIS IS AN APP </Text>
       <Searchbar
         //style={{ paddingHorizontal: 10 }}
-        placeholder="What place do you want to find?"
+        placeholder="Search Me"
+        onChangeText={onChangeSearch}
+        value={searchQuery}
       />
-    </KeyboardAvoidingView>
+      <ScrollView contentContainerStyle={styles.scrollView}>
+        {restaurant}
+      </ScrollView>
+    </SafeAreaView>
   );
 }
 
@@ -51,5 +77,25 @@ const styles = StyleSheet.create({
     //textAlign: "center",
     fontSize: 26,
     fontWeight: "bold",
+  },
+  scrollView: {
+    flex: 1,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  imageShape: {
+    width: "20%",
+    height: "100%",
+    borderRadius: 30,
+  },
+  categoryText: {
+    fontSize: 70,
+    margin: 5,
+    fontWeight: "bold",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    height: "22%",
+    width: "90%",
   },
 });
