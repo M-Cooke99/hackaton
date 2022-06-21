@@ -31,44 +31,24 @@ export default function WelcomeScreen({ navigation }) {
   const [searchQuery, setSearchQuery] = React.useState("");
   const onChangeSearch = (query) => setSearchQuery(query);
 
-  const restaurants = [torotoro, henryLee];
-  const restaurant = restaurants.map((selection, index) => {
-    return (
-      <TouchableOpacity
-        style={styles.restaurantObj}
-        key={index}
-        onPress={() =>
-          navigation.navigate("DetailsScreen", { jsonFile: selection })
-        }
-      >
-        <Image
-          style={styles.objImage}
-          source={{
-            uri: selection.Images[0],
-          }}
-        />
-        <Text style={styles.objText}>{selection.Name}</Text>
-      </TouchableOpacity>
-    );
-  });
   const restaurant = restaurants
     .filter(filtering(searchQuery))
     .map((selection, index) => {
-      console.log(selection.Images[0]);
-
       return (
         <TouchableOpacity
-          style={styles.categoryText}
+          style={styles.restaurantObj}
           key={index}
           onPress={() =>
             navigation.navigate("DetailsScreen", { jsonFile: selection })
           }
         >
           <Image
-            style={styles.imageShape}
-            source={require("../assets/Pictures/HenryLees.png")}
+            style={styles.objImage}
+            source={{
+              uri: selection.Images[0],
+            }}
           />
-          <Text>{selection.Name}</Text>
+          <Text style={styles.objText}>{selection.Name}</Text>
         </TouchableOpacity>
       );
     });
