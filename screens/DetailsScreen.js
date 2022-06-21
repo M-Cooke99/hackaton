@@ -28,14 +28,24 @@ export default function DetailsScreen({navigation, route}) {
       <DropShadow style={styles.commonProp}>
         <View style={styles.container}>
           <Text style={styles.title}>{restaurant.Name}</Text>
+          <View style={styles.button}>
 
-          {/* <Image style={styles.container} 
-          source={require(restaurant.Image)}/> */}
+
+          </View>
+
+          <Image
+            style={styles.objImage}
+            source={{
+              uri: restaurant.Images[0],
+            }}
+          />
+
           <View style={styles.inputBox}>
-            <Text style={styles.body}>Category: {restaurant.Cuisine}</Text>
+            <Text style={styles.body}>Cuisine: {restaurant.Cuisine}</Text>
             <Text style={styles.body}>Cost: {restaurant.Cost}</Text>
             <Text style={styles.body}>Address: {restaurant.Address}</Text>
             <Text style={styles.body}>Notes: {restaurant.Description}</Text>
+
             <Text style={styles.body}>Website: {restaurant.Website}</Text>
             <Text style={styles.body}>Book: {restaurant.Booking}</Text>
            </View>
@@ -112,5 +122,10 @@ const styles = StyleSheet.create({
     padding: 2,
     fontSize: 15,
     fontFamily: "HelveticaNeue-Light",
+  },
+  objImage: {
+    width: "100%",
+    height: "100%",
+    borderRadius: 30,
   },
 });
