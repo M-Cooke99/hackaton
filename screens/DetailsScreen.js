@@ -21,6 +21,10 @@ import DropShadow from "react-native-drop-shadow";
 import { Rating, AirbnbRating } from "react-native-ratings";
 export default function DetailsScreen({ navigation, route }) {
   restaurant = route.params.jsonFile;
+  if (restaurant.Image == "") {
+    restaurant.Image =
+      "https://skillry-s3-testing-bucket111341-dev.s3.ap-southeast-2.amazonaws.com/TorotoroRamen.png";
+  }
   return (
     <View style={styles.card}>
       <DropShadow style={styles.commonProp}>

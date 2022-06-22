@@ -31,9 +31,43 @@ import {
 import { Size } from "@ui-kitten/components/devsupport";
 
 export default function CreateNewScreen({ navigation }) {
+  const [Name, setName] = useState("");
+  const [Address, setAddress] = useState("");
+  const [Cuisine, setCuisine] = useState("");
+  const [Description, setDescription] = useState("");
+  const [rating, setRating] = useState("");
+  let newObj = {
+    Name: Name,
+    Area: "",
+    Suburb: "",
+    Cuisine: Cuisine,
+    Rating: 5,
+    Description: Description,
+    FavouriteDish: "",
+    Cost: "$$",
+    Address: Address,
+    Meal: "",
+    ToiletQuality: "",
+    Queue: "",
+    Busy: "",
+    Aethestic: "",
+    OpenMonday: "",
+    OpenTuesday: "",
+    OpenWednesday: "",
+    OpenThursday: "",
+    OpenFriday: "",
+    OpenSaturday: "",
+    OpenSunday: "",
+    PetFriendly: "",
+    StaffFriendly: "",
+    Images: "",
+    Website: "https://example.com.au/",
+    Booking: "https://example.com.au/",
+    Instagram: "",
+    Facebook: "",
+  };
   let openImagePickerAsync = async () => {
-    let permissionResult =
-      await ImagePicker.requestMediaLibraryPermissionsAsync();
+    let permissionResult = await ImagePicker.requestMediaLibraryPermissionsAsync();
 
     if (permissionResult.granted === false) {
       alert("Permission to access camera roll is required!");
@@ -41,13 +75,12 @@ export default function CreateNewScreen({ navigation }) {
     }
 
     let pickerResult = await ImagePicker.launchImageLibraryAsync();
-    console.log(pickerResult);
 
-    // if (pickerResult.cancelled === true) {
-    //   return;
-    // }
-
-    // setSelectedImage({ localUri: pickerResult.uri });
+    if (pickerResult.cancelled === true) {
+      return;
+    } else if (!pickerResult.cancelled) {
+      setSelectedImage({ localUri: pickerResult.uri });
+    }
   };
 
   //   if (selectedImage !== null) {
@@ -62,9 +95,6 @@ export default function CreateNewScreen({ navigation }) {
   //   }
 
   const [selectedImage, setSelectedImage] = React.useState(null);
-
-  const [value, setValue] = React.useState("left");
-
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -86,6 +116,7 @@ export default function CreateNewScreen({ navigation }) {
           style={styles.input}
           placeholder="Enter Name of Place"
           keyboardType="ascii-capable"
+          onChangeText={(Name) => setName(Name)}
         />
         <TextInput
           multiline
@@ -93,6 +124,7 @@ export default function CreateNewScreen({ navigation }) {
           style={styles.input}
           placeholder="Enter Address"
           keyboardType="ascii-capable"
+          onChangeText={(Address) => setAddress(Address)}
         />
         <TextInput
           multiline
@@ -100,6 +132,7 @@ export default function CreateNewScreen({ navigation }) {
           style={styles.input}
           placeholder="Enter Type of Cuisine"
           keyboardType="ascii-capable"
+          onChangeText={(Cuisine) => setCuisine(Cuisine)}
         />
         <TextInput
           multiline
@@ -107,6 +140,7 @@ export default function CreateNewScreen({ navigation }) {
           style={styles.input2}
           placeholder="Any Extra Notes?"
           keyboardType="ascii-capable"
+          onChangeText={(Description) => setDescription(Description)}
         />
 
         <Rating
@@ -114,10 +148,15 @@ export default function CreateNewScreen({ navigation }) {
           ratingCount={5}
           imageSize={60}
           showRating
-          //onFinishRating={this.ratingCompleted}
+          // onFinishRating={() => setRating(this)}
         />
       </View>
-      <TouchableOpacity style={styles.commandButton} onPress={() => {}}>
+      <TouchableOpacity
+        style={styles.commandButton}
+        onPress={() =>
+          navigation.navigate("DetailsScreen", { jsonFile: newObj })
+        }
+      >
         <Text style={styles.panelButtonTitle}>Submit</Text>
       </TouchableOpacity>
     </KeyboardAvoidingView>
@@ -178,7 +217,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: 340,
-    height: 200,
+    height: 150,
     padding: 5,
     borderRadius: 40,
     //borderWidth: 20,
