@@ -21,12 +21,15 @@ import DropShadow from "react-native-drop-shadow";
 import { Rating, AirbnbRating } from "react-native-ratings";
 export default function DetailsScreen({ navigation, route }) {
   restaurant = route.params.jsonFile;
+  if (restaurant.Images == "") {
+    restaurant.Images =
+      "https://skillry-s3-testing-bucket111341-dev.s3.ap-southeast-2.amazonaws.com/TorotoroRamen.png";
+  }
   const STAR_IMAGE2 = require("../assets/star3.png");
 
   return (
     <View style={styles.card}>
       <DropShadow style={styles.commonProp}>
-
         <View style={styles.container}>
           <Text style={styles.title}>{restaurant.Name}</Text>
 
@@ -52,7 +55,7 @@ export default function DetailsScreen({ navigation, route }) {
           <View style={styles.inputBox}>
             <Rating
               type="custom"
-              ratingImage ={STAR_IMAGE2}
+              ratingImage={STAR_IMAGE2}
               ratingCount={5.0}
               imageSize={20}
               showRating={false}
@@ -93,7 +96,7 @@ const styles = StyleSheet.create({
   },
 
   container: {
-    flex:1,
+    flex: 1,
     alignItems: "left",
     //	justifyContent: "center",
     padding: 40,
@@ -124,7 +127,7 @@ const styles = StyleSheet.create({
     padding: 2,
     fontSize: 15,
     fontFamily: "HelveticaNeue-Light",
-    flexWrap: "wrap", 
+    flexWrap: "wrap",
   },
 
   objImage: {
