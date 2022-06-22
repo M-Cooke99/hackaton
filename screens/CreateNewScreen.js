@@ -25,6 +25,8 @@ import {
   List,
   ToggleButton,
   Provider as PaperProvider,
+  IconButton,
+  MD3Colors,
 } from "react-native-paper";
 import { Size } from "@ui-kitten/components/devsupport";
 
@@ -106,21 +108,7 @@ export default function CreateNewScreen({ navigation }) {
           placeholder="Any Extra Notes?"
           keyboardType="ascii-capable"
         />
-        <View style={{ alignItems: "center", marginBottom: 10 }}>
-          <ToggleButton.Row
-            onValueChange={(value) => setValue(value)}
-            value={value}
-          >
-            <ToggleButton
-              icon="format-align-left"
-              value="left"
-              //style={{ width: 40, height: 40 }}
-              //size={10}
-            />
-            <ToggleButton icon="format-align-center" value="center" />
-            <ToggleButton icon="format-align-right" value="right" />
-          </ToggleButton.Row>
-        </View>
+
         <Rating
           type="heart"
           ratingCount={5}
@@ -145,7 +133,7 @@ const styles = StyleSheet.create({
     //justifyContent: "center",
   },
   input: {
-    height: 40,
+    height: "8%",
     margin: 6,
     borderWidth: 0,
     //borderColor: colourpallet.hightlight,
@@ -156,13 +144,13 @@ const styles = StyleSheet.create({
     fontFamily: "HelveticaNeue-Light",
   },
   input2: {
-    height: 90,
+    height: "18%",
     margin: 6,
     borderWidth: 0,
     //borderColor: colourpallet.hightlight,
     padding: 10,
     backgroundColor: "#c8e6b7",
-    borderRadius: 10,
+    borderRadius: 5,
     fontSize: 16,
     fontFamily: "HelveticaNeue-Light",
   },
@@ -173,24 +161,24 @@ const styles = StyleSheet.create({
     color: "#FFFFFF",
   },
   commandButton: {
-    padding: 15,
+    padding: 10,
     borderRadius: 10,
     backgroundColor: "#419c68",
     alignItems: "center",
-    marginTop: 10,
+    //marginTop: 5,
     //paddingHorizontal: 5,
   },
   thumbnail: {
-    width: 280,
-    height: 280,
+    width: "20%",
+    height: "20%",
     resizeMode: "contain",
   },
   image: {
     //flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    width: 400,
-    height: 240,
+    width: 340,
+    height: 200,
     padding: 5,
     borderRadius: 40,
     //borderWidth: 20,

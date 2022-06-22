@@ -73,12 +73,13 @@ export default function WelcomeScreen({ navigation }) {
       behavior={Platform.OS === "ios" ? "padding" : "height"}
     >
       <View>
-        <Text style={styles.title}> SnackMe </Text>
+        <Text style={styles.title}> FoodieSpot </Text>
         <View style={styles.sideItems}>
           <AppIcon
             style={styles.sideIcons}
             IonName="add-circle-outline"
             size={40}
+            color="#419c68"
             //color={colourpallet.test1}
             onPress={() => navigation.navigate("CreateNewScreen")}
           />
@@ -86,9 +87,15 @@ export default function WelcomeScreen({ navigation }) {
       </View>
       <Searchbar
         //style={{ paddingHorizontal: 10 }}
-        placeholder="Search Me"
+        placeholder="Search For Your Saved Places"
         onChangeText={onChangeSearch}
         value={searchQuery}
+        iconColor="#419c68"
+        style={{
+          fontFamily: "",
+          backgroundColor: "#c8e6b7",
+          margin: 8,
+        }}
       />
       <ScrollView contentContainerStyle={styles.scrollView}>
         {restaurant}
@@ -107,7 +114,7 @@ const styles = StyleSheet.create({
   title: {
     marginTop: "2%",
     paddingVertical: "1%",
-    paddingBottom: "5%",
+    paddingBottom: "3%",
     paddingLeft: "2%",
     // borderWidth: 2,
     // borderColor: colourpallet.black,
@@ -117,6 +124,7 @@ const styles = StyleSheet.create({
     //textAlign: "center",
     fontSize: 26,
     fontWeight: "bold",
+    fontFamily: "Chalkduster",
   },
   scrollView: {
     flex: 1,
@@ -135,7 +143,7 @@ const styles = StyleSheet.create({
     height: "22%",
     width: "47%",
   },
-  objText: { margin: 5, fontSize: 15 },
+  objText: { margin: 5, fontSize: 15, fontFamily: "HelveticaNeue-Medium" },
   sideItems: {
     position: "absolute",
     //top: 1,
@@ -145,6 +153,6 @@ const styles = StyleSheet.create({
   sideIcons: {
     width: 40,
     height: 90,
-    marginVertical: 10,
+    marginVertical: 4,
   },
 });
