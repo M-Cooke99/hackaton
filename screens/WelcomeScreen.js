@@ -149,9 +149,10 @@ export default function WelcomeScreen({ navigation }) {
         value={searchQuery}
         iconColor="#419c68"
         style={{
-          fontFamily: "",
+          fontFamily: "HelveticaNeue-Medium",
           backgroundColor: "#c8e6b7",
           margin: 8,
+          borderColor: "#419c68",
         }}
       />
       <ScrollView style={styles.scrollView}>{restaurant}</ScrollView>
@@ -195,8 +196,27 @@ const styles = StyleSheet.create({
     margin: 20,
     height: 120,
     width: "90%",
+    borderColor: "#c8e6b7",
+    //borderWidth: 5,
+    // borderRadius: 10,
+    // borderTopWidth: 25,
+    // borderBottomWidth: 20,
+    // //width: "90%",
+    borderBottomWidth: 3,
+    borderBottomColor: "#000000",
+    paddingBottom: 20,
   },
-  objText: { margin: 5, fontSize: 18, fontFamily: "HelveticaNeue-Medium" },
+  objText: {
+    //paddingBottom: 5,
+    margin: 5,
+    fontSize: 18,
+    fontFamily: "HelveticaNeue-Medium",
+    backgroundColor: "#419c68",
+    borderRadius: 10,
+    //margin: 5,
+    color: "#fff",
+    paddingLeft: 10,
+  },
   sideItems: {
     position: "absolute",
     //top: 1,

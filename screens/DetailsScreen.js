@@ -25,17 +25,23 @@ export default function DetailsScreen({ navigation, route }) {
     restaurant.Image =
       "https://skillry-s3-testing-bucket111341-dev.s3.ap-southeast-2.amazonaws.com/TorotoroRamen.png";
   }
+  const STAR_IMAGE2 = require("../assets/star3.png");
+
   return (
     <View style={styles.card}>
       <DropShadow style={styles.commonProp}>
         <View style={styles.container}>
           <Text style={styles.title}>{restaurant.Name}</Text>
-          <View style={styles.button}></View>
+
+          <View style={styles.inputBox}>
+            <Text style={styles.body}>Website: {restaurant.Website}</Text>
+            <Text style={styles.body}>Book: {restaurant.Booking}</Text>
+          </View>
 
           <Image
             style={styles.objImage}
             source={{
-              uri: restaurant.Images[0],
+              uri: restaurant.Images,
             }}
           />
 
@@ -44,16 +50,14 @@ export default function DetailsScreen({ navigation, route }) {
             <Text style={styles.body}>Cost: {restaurant.Cost}</Text>
             <Text style={styles.body}>Address: {restaurant.Address}</Text>
             <Text style={styles.body}>Notes: {restaurant.Description}</Text>
-
-            <Text style={styles.body}>Website: {restaurant.Website}</Text>
-            <Text style={styles.body}>Book: {restaurant.Booking}</Text>
           </View>
 
           <View style={styles.inputBox}>
             <Rating
-              type="heart"
+              type="custom"
+              ratingImage={STAR_IMAGE2}
               ratingCount={5.0}
-              imageSize={60}
+              imageSize={20}
               showRating={false}
               ratingColor="#419c68"
               ratingTextColor="#419c68" //green
@@ -102,7 +106,8 @@ const styles = StyleSheet.create({
   },
 
   inputBox: {
-    marginTop: 10,
+    marginTop: 5,
+    marginBottom: 5,
   },
 
   title: {
@@ -121,7 +126,9 @@ const styles = StyleSheet.create({
     padding: 2,
     fontSize: 15,
     fontFamily: "HelveticaNeue-Light",
+    flexWrap: "wrap",
   },
+
   objImage: {
     width: "100%",
     height: "30%",
