@@ -17,13 +17,43 @@ import {
   ScrollView,
 } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
-import { Searchbar } from "react-native-paper";
-import torotoro from "../Database/TorotoroRamen.json";
-import henryLee from "../Database/HenryLees.json";
+import { List, Divider, DefaultTheme, Searchbar } from "react-native-paper";
+import ABowlofNoodles from "../Database/ABowlofNoodles";
+import ChristophersCakeShop from "../Database/ChristophersCakeShop.json";
+import Dizys from "../Database/Dizys.json";
+import DoubleCrossDiningRoom from "../Database/DoubleCrossDiningRoom.json";
+import EastOceanSeafood from "../Database/EastOceanSeafood.json";
+import Hansang from "../Database/Hansang.json";
+import HenryLee from "../Database/HenryLees.json";
+import HongHaBakery from "../Database/HongHaBakery.json";
+import HongKongStreetFood from "../Database/HongKongStreetFood.json";
+import LaLuneMarket from "../Database/LaLuneMarket.json";
+import LAnnam from "../Database/LAnnam.json";
+import LeibleCoffee from "../Database/LeibleCoffee.json";
+import LokhaCafe from "../Database/LokhaCafe.json";
+import Mikazuki from "../Database/Mikazuki.json";
+import NanjingDumpling from "../Database/NanjingDumpling.json";
+import NuriyahCafe from "../Database/NuriyahCafe.json";
+import PhoSongHuong from "../Database/PhoSongHuong.json";
+import SantaCafe from "../Database/SantaCafe.json";
+import SeochoDong from "../Database/SeochoDong.json";
+import ShinMachi from "../Database/ShinMachi.json";
+import SimplySandwiches from "../Database/SimplySandwiches.json";
+import SunflowerTaiwaneseGourmet from "../Database/SunflowerTaiwaneseGourmet.json";
+import TheWoodenWhisk from "../Database/TheWoodenWhisk.json";
+import Tokki from "../Database/Tokki.json";
+import Toriciya from "../Database/Toriciya.json";
+import Torotoro from "../Database/TorotoroRamen.json";
 
 const filtering = (query) => (res) => {
   if (!query) return true;
-  const rs = Object.values(res).filter((r) => r.includes(query));
+  const rs = Object.values(res).filter((r) => {
+    if (r) {
+      return r.toString().includes(query);
+    } else {
+      return false;
+    }
+  });
   return !!rs.length;
 };
 
@@ -31,7 +61,34 @@ export default function WelcomeScreen({ navigation }) {
   const [searchQuery, setSearchQuery] = React.useState("");
   const onChangeSearch = (query) => setSearchQuery(query);
 
-  const restaurants = [torotoro, henryLee];
+  const restaurants = [
+    Torotoro,
+    HenryLee,
+    ABowlofNoodles,
+    EastOceanSeafood,
+    SunflowerTaiwaneseGourmet,
+    LeibleCoffee,
+    Tokki,
+    ChristophersCakeShop,
+    Dizys,
+    DoubleCrossDiningRoom,
+    Hansang,
+    HongHaBakery,
+    HongKongStreetFood,
+    LaLuneMarket,
+    LAnnam,
+    LokhaCafe,
+    Mikazuki,
+    NanjingDumpling,
+    NuriyahCafe,
+    PhoSongHuong,
+    SantaCafe,
+    SeochoDong,
+    ShinMachi,
+    SimplySandwiches,
+    TheWoodenWhisk,
+    Toriciya,
+  ];
   const restaurant = restaurants
     .filter(filtering(searchQuery))
     .map((selection, index) => {
@@ -43,13 +100,13 @@ export default function WelcomeScreen({ navigation }) {
             navigation.navigate("DetailsScreen", { jsonFile: selection })
           }
         >
+          <Text style={styles.objText}>{selection.Name}</Text>
           <Image
             style={styles.objImage}
             source={{
-              uri: selection.Images[0],
+              uri: selection.Images,
             }}
           />
-          <Text style={styles.objText}>{selection.Name}</Text>
         </TouchableOpacity>
       );
     });
@@ -97,9 +154,7 @@ export default function WelcomeScreen({ navigation }) {
           margin: 8,
         }}
       />
-      <ScrollView contentContainerStyle={styles.scrollView}>
-        {restaurant}
-      </ScrollView>
+      <ScrollView style={styles.scrollView}>{restaurant}</ScrollView>
     </SafeAreaView>
   );
 }
@@ -127,23 +182,21 @@ const styles = StyleSheet.create({
     fontFamily: "Chalkduster",
   },
   scrollView: {
-    flex: 1,
-    flexDirection: "row",
     paddingTop: 10,
   },
   objImage: {
     width: "100%",
-    height: "100%",
+    height: "110%",
     borderRadius: 30,
   },
   restaurantObj: {
-    margin: 5,
-    alignItems: "center",
-    justifyContent: "space-evenly",
-    height: "22%",
-    width: "47%",
+    //alignItems: "center",
+    justifyContent: "center",
+    margin: 20,
+    height: 120,
+    width: "90%",
   },
-  objText: { margin: 5, fontSize: 15, fontFamily: "HelveticaNeue-Medium" },
+  objText: { margin: 5, fontSize: 18, fontFamily: "HelveticaNeue-Medium" },
   sideItems: {
     position: "absolute",
     //top: 1,
