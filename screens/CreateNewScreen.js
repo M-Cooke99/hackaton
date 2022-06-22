@@ -21,6 +21,14 @@ import {
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 import { Rating, AirbnbRating } from "react-native-ratings";
 import * as ImagePicker from "expo-image-picker";
+import {
+  List,
+  ToggleButton,
+  Provider as PaperProvider,
+  IconButton,
+  MD3Colors,
+} from "react-native-paper";
+import { Size } from "@ui-kitten/components/devsupport";
 
 export default function CreateNewScreen({ navigation }) {
   let openImagePickerAsync = async () => {
@@ -55,6 +63,8 @@ export default function CreateNewScreen({ navigation }) {
 
   const [selectedImage, setSelectedImage] = React.useState(null);
 
+  const [value, setValue] = React.useState("left");
+
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -74,14 +84,14 @@ export default function CreateNewScreen({ navigation }) {
           multiline
           blurOnSubmit
           style={styles.input}
-          placeholder="Enter Address"
+          placeholder="Enter Name of Place"
           keyboardType="ascii-capable"
         />
         <TextInput
           multiline
           blurOnSubmit
           style={styles.input}
-          placeholder="Enter Name of Place"
+          placeholder="Enter Address"
           keyboardType="ascii-capable"
         />
         <TextInput
@@ -94,7 +104,7 @@ export default function CreateNewScreen({ navigation }) {
         <TextInput
           multiline
           blurOnSubmit
-          style={styles.input}
+          style={styles.input2}
           placeholder="Any Extra Notes?"
           keyboardType="ascii-capable"
         />
@@ -118,42 +128,57 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
+    paddingHorizontal: 10,
     //alignItems: "center",
     //justifyContent: "center",
   },
   input: {
-    height: 75,
+    height: "8%",
     margin: 6,
-    borderWidth: 1,
+    borderWidth: 0,
     //borderColor: colourpallet.hightlight,
     padding: 10,
-    //backgroundColor: colourpallet.primary,
+    backgroundColor: "#c8e6b7",
     borderRadius: 10,
     fontSize: 16,
+    fontFamily: "HelveticaNeue-Light",
+  },
+  input2: {
+    height: "18%",
+    margin: 6,
+    borderWidth: 0,
+    //borderColor: colourpallet.hightlight,
+    padding: 10,
+    backgroundColor: "#c8e6b7",
+    borderRadius: 5,
+    fontSize: 16,
+    fontFamily: "HelveticaNeue-Light",
   },
   panelButtonTitle: {
     fontSize: 17,
     fontWeight: "bold",
+    fontFamily: "HelveticaNeue-Medium",
     color: "#FFFFFF",
   },
   commandButton: {
-    padding: 15,
+    padding: 10,
     borderRadius: 10,
-    backgroundColor: "#26abff",
+    backgroundColor: "#419c68",
     alignItems: "center",
-    marginTop: 10,
+    //marginTop: 5,
+    //paddingHorizontal: 5,
   },
   thumbnail: {
-    width: 300,
-    height: 300,
+    width: "20%",
+    height: "20%",
     resizeMode: "contain",
   },
   image: {
     //flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    width: 400,
-    height: 240,
+    width: 340,
+    height: 200,
     padding: 5,
     borderRadius: 40,
     //borderWidth: 20,
