@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     padding: 40,
     paddingVertical: 5,
     borderRadius: 2,
-    backgroundColor: "#e0f2dc",
+    backgroundColor: "#e0f2dc",//light green
   },
 
   inputBox: {
