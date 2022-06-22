@@ -20,6 +20,7 @@ import {
 import DropShadow from "react-native-drop-shadow";
 import { Rating, AirbnbRating } from "react-native-ratings";
 export default function DetailsScreen({ navigation, route }) {
+  restaurant = route.params.jsonFile;
   return (
     <View style={styles.card}>
       <DropShadow style={styles.commonProp}>
