@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
   },
 
   inputBox: {
-    marginTop: 5,
+    marginTop: 10,
     marginBottom:5,
     
   },
