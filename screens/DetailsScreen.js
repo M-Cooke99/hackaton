@@ -25,9 +25,9 @@ export default function DetailsScreen({ navigation, route }) {
 
   return (
     <View style={styles.card}>
-      {/* <DropShadow style={styles.commonProp}> */}
+      <DropShadow style={styles.commonProp}>
 
-        {/* <View style={styles.container}> */}
+        <View style={styles.container}>
           <Text style={styles.title}>{restaurant.Name}</Text>
 
           <View style={styles.inputBox}>
@@ -54,7 +54,7 @@ export default function DetailsScreen({ navigation, route }) {
               type="custom"
               ratingImage ={STAR_IMAGE2}
               ratingCount={5.0}
-              imageSize={60}
+              imageSize={20}
               showRating={false}
               ratingColor="#419c68"
               ratingTextColor="#419c68" //green
@@ -63,9 +63,9 @@ export default function DetailsScreen({ navigation, route }) {
               startingValue={restaurant.Rating}
               //onFinishRating={this.ratingCompleted}
             />
-          {/* </View> */}
+          </View>
         </View>
-      {/* </DropShadow> */}
+      </DropShadow>
     </View>
   );
 }
