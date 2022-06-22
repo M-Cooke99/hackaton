@@ -25,9 +25,9 @@ export default function DetailsScreen({ navigation, route }) {
 
   return (
     <View style={styles.card}>
-      <DropShadow style={styles.commonProp}>
+      {/* <DropShadow style={styles.commonProp}> */}
 
-        <View style={styles.container}>
+        {/* <View style={styles.container}> */}
           <Text style={styles.title}>{restaurant.Name}</Text>
 
           <View style={styles.inputBox}>
@@ -47,9 +47,6 @@ export default function DetailsScreen({ navigation, route }) {
             <Text style={styles.body}>Cost: {restaurant.Cost}</Text>
             <Text style={styles.body}>Address: {restaurant.Address}</Text>
             <Text style={styles.body}>Notes: {restaurant.Description}</Text>
-
-            <Text style={styles.body}>Website: {restaurant.Website}</Text>
-            <Text style={styles.body}>Book: {restaurant.Booking}</Text>
           </View>
 
           <View style={styles.inputBox}>
@@ -66,9 +63,9 @@ export default function DetailsScreen({ navigation, route }) {
               startingValue={restaurant.Rating}
               //onFinishRating={this.ratingCompleted}
             />
-          </View>
+          {/* </View> */}
         </View>
-      </DropShadow>
+      {/* </DropShadow> */}
     </View>
   );
 }
