@@ -64,6 +64,7 @@ export default function CreateNewScreen({ navigation }) {
   const [selectedImage, setSelectedImage] = React.useState(null);
 
   const [value, setValue] = React.useState("left");
+  
   const STAR_IMAGE = require("../assets/star.png");
   const STAR_IMAGE2 = require("../assets/star3.png");
 
