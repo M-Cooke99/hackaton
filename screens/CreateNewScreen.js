@@ -64,6 +64,9 @@ export default function CreateNewScreen({ navigation }) {
   const [selectedImage, setSelectedImage] = React.useState(null);
 
   const [value, setValue] = React.useState("left");
+  const STAR_IMAGE = require("../assets/star.png");
+  const STAR_IMAGE2 = require("../assets/star3.png");
+
 
   return (
     <KeyboardAvoidingView
@@ -110,9 +113,15 @@ export default function CreateNewScreen({ navigation }) {
         />
 
         <Rating
-          type="heart"
+          type="custom"
+          ratingImage ={STAR_IMAGE}
+          ratingColor="#419c68"
+          ratingBackgroundColor="#FFFFFF"
+          ratingTextColor="#419c68" //green
+          
           ratingCount={5}
-          imageSize={60}
+          imageSize={40}
+          style={{ paddingVertical: 10 }}
           showRating
           //onFinishRating={this.ratingCompleted}
         />

@@ -19,18 +19,24 @@ import {
 } from "react-native";
 import DropShadow from "react-native-drop-shadow";
 import { Rating, AirbnbRating } from "react-native-ratings";
+
 export default function DetailsScreen({navigation, route}) {
+
 
  console.log(route);
  const restaurant=route.params.jsonFile;
+ //const STAR_IMAGE2 = require("../assets/star3.png");
+
   return (
     <View style={styles.card}>
       <DropShadow style={styles.commonProp}>
+
         <View style={styles.container}>
           <Text style={styles.title}>{restaurant.Name}</Text>
-          <View style={styles.button}>
 
-
+          <View style={styles.inputBox}>
+            <Text style={styles.body}>Website: {restaurant.Website}</Text>
+            <Text style={styles.body}>Book: {restaurant.Booking}</Text>
           </View>
 
           <Image
@@ -46,21 +52,18 @@ export default function DetailsScreen({navigation, route}) {
             <Text style={styles.body}>Address: {restaurant.Address}</Text>
             <Text style={styles.body}>Notes: {restaurant.Description}</Text>
 
-            <Text style={styles.body}>Website: {restaurant.Website}</Text>
-            <Text style={styles.body}>Book: {restaurant.Booking}</Text>
            </View>
 
         <View style={styles.inputBox}>
-         <Rating
-          type="heart"
-          ratingCount={5.0}
-          imageSize={60}
-          showRating={false}
-          ratingColor="#419c68"
+        <Rating 
+          type="custom"
+         // ratingImage ={STAR_IMAGE2}
+          ratingColor="#e0f2dc"
+          ratingBackgroundColor="#FFFFFF"
           ratingTextColor="#419c68" //green
-          ratingBackgroundColor="#e0f2dc"
-          readeonly={true}
-          startingValue={restaurant.Rating}
+          ratingCount={5}
+          imageSize={60}
+          showRating
           //onFinishRating={this.ratingCompleted}
         />
         </View>
@@ -104,7 +107,8 @@ const styles = StyleSheet.create({
   },
 
   inputBox: {
-    marginTop: 10,
+    marginTop: 5,
+    marginBottom:5,
   },
 
   title: {
@@ -124,6 +128,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontFamily: "HelveticaNeue-Light",
   },
+
   objImage: {
     width: "100%",
     height: "30%",
