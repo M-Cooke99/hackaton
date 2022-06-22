@@ -67,7 +67,6 @@ export default function CreateNewScreen({ navigation }) {
   const STAR_IMAGE = require("../assets/star.png");
   const STAR_IMAGE2 = require("../assets/star3.png");
 
-
   return (
     <KeyboardAvoidingView
       style={styles.container}
@@ -114,11 +113,10 @@ export default function CreateNewScreen({ navigation }) {
 
         <Rating
           type="custom"
-          ratingImage ={STAR_IMAGE}
+          ratingImage={STAR_IMAGE}
           ratingColor="#419c68"
           ratingBackgroundColor="#FFFFFF"
           ratingTextColor="#419c68" //green
-          
           ratingCount={5}
           imageSize={40}
           style={{ paddingVertical: 10 }}
@@ -138,6 +136,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
     paddingHorizontal: 10,
+    paddingTop: 10,
     //alignItems: "center",
     //justifyContent: "center",
   },
