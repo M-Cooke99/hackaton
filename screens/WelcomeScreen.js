@@ -47,7 +47,13 @@ import Torotoro from "../Database/TorotoroRamen.json";
 
 const filtering = (query) => (res) => {
   if (!query) return true;
-  const rs = Object.values(res).filter((r) => r.includes(query));
+  const rs = Object.values(res).filter((r) => {
+    if (r) {
+      return r.toString().includes(query);
+    } else {
+      return false;
+    }
+  });
   return !!rs.length;
 };
 
