@@ -110,7 +110,7 @@ export default function CreateNewScreen({ navigation }) {
         />
 
         <Rating
-          type="heart"
+          type="star"
           ratingCount={5}
           imageSize={60}
           showRating

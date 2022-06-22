@@ -18,7 +18,6 @@ import {
 } from "react-native";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 import { List, Divider, DefaultTheme, Searchbar } from "react-native-paper";
-import { Searchbar } from "react-native-paper";
 import ABowlofNoodles from "../Database/ABowlofNoodles";
 import ChristophersCakeShop from "../Database/ChristophersCakeShop.json";
 import Dizys from "../Database/Dizys.json";
@@ -95,13 +94,13 @@ export default function WelcomeScreen({ navigation }) {
             navigation.navigate("DetailsScreen", { jsonFile: selection })
           }
         >
+          <Text style={styles.objText}>{selection.Name}</Text>
           <Image
             style={styles.objImage}
             source={{
               uri: selection.Images,
             }}
           />
-          <Text style={styles.objText}>{selection.Name}</Text>
         </TouchableOpacity>
       );
     });
@@ -181,15 +180,17 @@ const styles = StyleSheet.create({
   },
   objImage: {
     width: "100%",
-    height: "100%",
+    height: "110%",
     borderRadius: 30,
   },
   restaurantObj: {
+    //alignItems: "center",
+    justifyContent: "center",
     margin: 20,
-    height: 100,
+    height: 120,
     width: "90%",
   },
-  objText: { margin: 5, fontSize: 15, fontFamily: "HelveticaNeue-Medium" },
+  objText: { margin: 5, fontSize: 18, fontFamily: "HelveticaNeue-Medium" },
   sideItems: {
     position: "absolute",
     //top: 1,
