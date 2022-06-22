@@ -200,8 +200,8 @@ const styles = StyleSheet.create({
     // borderWidth: 5,
     // borderRadius: 10,
     // borderTopWidth: 25,
-    //borderBottomWidth: 20,
-    //width: "90%",
+    // borderBottomWidth: 20,
+    // //width: "90%",
   },
   objText: {
     //paddingBottom: 5,
